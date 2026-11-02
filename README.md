@@ -25,7 +25,7 @@ Set a non-default database password before using this setup beyond local develop
 
 ## Run services locally
 
-Start PostgreSQL separately, then start the API and frontend in different terminals:
+The API uses an in-memory H2 database by default for local development. Start the API and frontend in different terminals:
 
 ```powershell
 cd backend
@@ -38,7 +38,7 @@ npm ci
 npm run dev
 ```
 
-The Vite development server proxies `/api` requests to `http://localhost:8080`. Configure the backend with `SPRING_DATASOURCE_URL`, `SPRING_DATASOURCE_USERNAME`, and `SPRING_DATASOURCE_PASSWORD` if your local PostgreSQL settings differ from the defaults.
+The Vite development server proxies `/api` requests to `http://localhost:8080`. Local H2 data resets when the backend stops. To use PostgreSQL locally, configure `SPRING_DATASOURCE_URL`, `SPRING_DATASOURCE_USERNAME`, `SPRING_DATASOURCE_PASSWORD`, and `SPRING_DATASOURCE_DRIVER_CLASS_NAME=org.postgresql.Driver`.
 
 ## REST API
 

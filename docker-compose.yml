@@ -20,6 +20,7 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/${POSTGRES_DB:-taskdb}
       SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER:-taskuser}
       SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD:-taskpass}
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver
       SERVER_PORT: 8080
     depends_on:
       db:
